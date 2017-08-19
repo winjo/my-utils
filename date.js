@@ -1,4 +1,5 @@
 /**
+ * 格式化日期
  * @param {Date} [date] [日期对象]
  * @param {String} [formatStr] [格式化字符串形式 如 `yyyy-MM-dd hh:mm:ss`]
  * @return {String} [格式化后的字符串]
