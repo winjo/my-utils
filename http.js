@@ -5,7 +5,7 @@
  * @param {Sting} val 
  */
 function encode(val) {
-  return encodeURIComponent(val).replace(/%20/g, '+')
+  return encodeURIComponent(val).replace(/%20/g, '+');
 }
 
 /**
@@ -42,7 +42,7 @@ function serialize(obj) {
       }
       pairs.push(encode(key) + '=' + encode(v));
     });
-  })
+  });
   return pairs.join('&');
 }
 
@@ -52,20 +52,21 @@ function serialize(obj) {
  * @return {Object} 解析后的查询字符串对象
  */
 function deserialize(querystring) {
-  var querystring = querystring || window.location.search.slice(1);
+  querystring = querystring || window.location.search.slice(1);
   var query = {};
   querystring.split('&').forEach(function (pair) {
     var pos = pair.indexOf('=');
     if (pos >= 0) {
-      key = decode(pair.slice(0, pos)),
+      key = decode(pair.slice(0, pos));
       value = decode(pair.slice(pos + 1));
       if (query.hasOwnProperty(key)) {
-        query[key] = [query[key], value];
+        query[key] = [].concat(query[key]);
+        query[key].push(value);
       } else {
         query[key] = value;
       }
     }
-  })
+  });
   return query;
 }
 
@@ -113,12 +114,12 @@ function http(url, data, method, config) {
               result = JSON.parse(result);
             } catch (e) {}
           }
-          resolve(result)
+          resolve(result);
         } else {
-          reject(new Error('Request failed with status code ' + xhr.status))
+          reject(new Error('Request failed with status code ' + xhr.status));
         }
       }
-    }
+    };
 
     xhr.onerror = function () {
       reject(new Error('Network Error'));
@@ -137,7 +138,7 @@ function http(url, data, method, config) {
         } else {
           xhr.setRequestHeader(key, val);
         }
-      })
+      });
     }
 
     if (config.withCredentials) {
