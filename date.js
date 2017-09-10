@@ -18,12 +18,13 @@ function formatDate(date, formatStr) {
     'w': Week[date.getDay()], // 周
     'S': date.getMilliseconds() + '' // 毫秒
   };
-  Object.keys(regs).forEach(function (r) {
-    if (new RegExp('(' + r + ')').test(formatStr)) {
-      if (r === 'y+') {
-        formatStr = formatStr.replace(RegExp.$1, regs[r].slice(4 - RegExp.$1.length));
+  Object.keys(regs).forEach(function (rstr) {
+    if (new RegExp('(' + rstr + ')').test(formatStr)) {
+      var val = regs[rstr];
+      if (rstr === 'y+') {
+        formatStr = formatStr.replace(RegExp.$1, val.slice(4 - RegExp.$1.length));
       } else {
-        formatStr = formatStr.replace(RegExp.$1, (RegExp.$1.length === 1) ? regs[r] : (('00' + regs[r]).slice(regs[r].length)));
+        formatStr = formatStr.replace(RegExp.$1, (RegExp.$1.length === 1) ? val : (('00' + val).slice(val.length)));
       }
     }
   });

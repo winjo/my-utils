@@ -2,10 +2,28 @@
 
 函数列表：
 * type.js
-  * isArray （判断数组）
-  * isObject  （判断对象）
-  * isDate （判断日期）
-  * isString （判断字符串）
+  * isUndefined
+  * isNull
+  * isString
+  * isNumber
+  * isBoolean
+  * isObject
+  * isFunction
+  * isSymbol
+  * isPlainObject
+  * isArray
+  * isDate
+  * isRegExp
+  * isBlob
+  * isArrayBuffer
+  * isArrayBufferView
+  * isFormData
+  * isURLSearchParams
+  * isPromise
+  * isMap
+  * isWeakMap
+  * isSet
+  * isWeakSet
 * date.js
   * formatDate （格式化日期）
 * http.js

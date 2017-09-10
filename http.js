@@ -1,5 +1,3 @@
-// import { isObject, isArray, isDate, isString } from './type.js
-
 /**
  * 编码字符串
  * @param {Sting} val 
@@ -22,7 +20,8 @@ function decode(val) {
  * @return {String}
  */
 function serialize(obj) {
-  if (!isObject(obj)) return '';
+  if (!obj || typeof val !== 'object') return '';
+  var toString = Object.prototype.toString;
   var pairs = [];
   Object.keys(obj).forEach(function (key) {
     var val = obj[key];
@@ -30,12 +29,12 @@ function serialize(obj) {
       return;
     }
 
-    if (!isArray(val)) {
+    if (toString.call(val) !== '[object Array]') {
       val = [val];
     }
 
     val.forEach(function (v) {
-      if (isDate(v)) {
+      if (toString.call(v) === '[object Date]') {
         v = v.toISOString();
       } else if (isObject(v)) {
         v = JSON.stringify(v);
@@ -94,7 +93,7 @@ function http(url, data, method, config) {
       if (isObject(data)) {
         data = JSON.stringify(data);
         headers['Content-Type'] = 'application/json;charset=utf-8';
-      } else if (isString(data)) {
+      } else if (typeof data === 'string') {
         headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
       }
     }
