@@ -20,7 +20,7 @@ function decode(val) {
  * @return {String}
  */
 function serialize(obj) {
-  if (!obj || typeof val !== 'object') return '';
+  if (!obj || typeof obj !== 'object') return '';
   var toString = Object.prototype.toString;
   var pairs = [];
   Object.keys(obj).forEach(function (key) {
@@ -36,7 +36,7 @@ function serialize(obj) {
     val.forEach(function (v) {
       if (toString.call(v) === '[object Date]') {
         v = v.toISOString();
-      } else if (isObject(v)) {
+      } else if (typeof v === 'object') {
         v = JSON.stringify(v);
       }
       pairs.push(encode(key) + '=' + encode(v));
@@ -89,8 +89,8 @@ function http(url, data, method, config) {
       if (queryString !== '') {
         url += (url.indexOf('?') === -1 ? '?' : '&') + queryString;
       }
-    } else {
-      if (isObject(data)) {
+    } else if (data) {
+      if (typeof data === 'object') {
         data = JSON.stringify(data);
         headers['Content-Type'] = 'application/json;charset=utf-8';
       } else if (typeof data === 'string') {
