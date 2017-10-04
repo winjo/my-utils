@@ -34,3 +34,10 @@
   * http （http 请求）
 * get.js
   * get（对象取属性函数，实现 proposal-optional-chainning）
+* delay.js
+  * delay（使用 Promise 封装  setTimeout）
+* escape-html
+  * escapeHTML（转义 html 字符串）
+  * unescapeHTML（转回 html 字符串）
+* proxy
+  * proxy（使用 Proxy 实现链式调用）
