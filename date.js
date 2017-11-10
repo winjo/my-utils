@@ -1,16 +1,17 @@
 /**
  * 固定数字长度
- * @param {Number} num 数字
+ * @param {String | Number} num 数字
  * @param {Number} len 需要固定的长度
  * @return {String} 固定后的字符串
  */
 function fixSize(num, len) {
-  var l = num.toString().length;
+  num = num + '';
+  var l = num.length;
   var diff = l - len;
   if (diff < 0) { // 长度不够就补0
     return new Array(-diff + 1).join('0') + num;
   } else { // 长度超出接截取
-    return num.toString().slice(diff);
+    return num.slice(diff);
   }
 }
 

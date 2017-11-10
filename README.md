@@ -41,3 +41,8 @@
   * unescapeHTML（转回 html 字符串）
 * proxy
   * proxy（使用 Proxy 实现链式调用）
+* nextTick
+  * nextTick（使用 Promise或MutationObserver实现 microtask 的回调，参照 vue 的 nextTick 实现）
+* getPrimes
+  * primes (计算质数，返回generator)
+  * getPrimes (内部调用 primes, 返回指定范围的质数数组)

@@ -26,7 +26,7 @@ var unescaper = create(unescapeMap);
 
 var isUndef = function(val) {
   return val === null || typeof val === 'undefined';
-}
+};
 
 function escapeHTML(str) {
   str = isUndef(str) ? '' : str + '';
