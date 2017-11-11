@@ -8,14 +8,12 @@ function* oddIter () {
   }
 }
 
-function filter (fn, iter) {
-  return (function* () {
-    let v;
-    while (true) {
-      v = iter.next().value;
-      if (fn(v)) yield v;
+function* filter (fn, iter) {
+  for (let item of iter) {
+    if (fn(item)) {
+      yield item;
     }
-  })();
+  }
 }
 
 function* primes () {
