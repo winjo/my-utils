@@ -90,7 +90,8 @@ function http(url, data, method, config) {
         url += (url.indexOf('?') === -1 ? '?' : '&') + queryString;
       }
     } else if (data) {
-      if (typeof data === 'object') {
+      var toString = Object.prototype.toString;
+      if (toString.call(data) === '[object Object]') {
         data = JSON.stringify(data);
         headers['Content-Type'] = 'application/json;charset=utf-8';
       } else if (typeof data === 'string') {

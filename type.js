@@ -33,7 +33,7 @@ function isSymbol(val) {
 }
 
 function isPlainObject(val) {
-  return toString.call(obj) === '[object Object]';
+  return toString.call(val) === '[object Object]';
 }
 
 function isArray(val) {

@@ -46,3 +46,5 @@
 * getPrimes
   * primes (计算质数，返回generator)
   * getPrimes (内部调用 primes, 返回指定范围的质数数组)
+* escape-reg
+  * escape（正则字符串转义）
