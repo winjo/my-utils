@@ -79,7 +79,7 @@ function isURLSearchParams(val) {
 }
 
 function isPromise(val) {
-  return val !== null && typeof val === 'object' && typeof obj.then === 'function';
+  return val !== null && typeof val === 'object' && typeof val.then === 'function';
 }
 
 function isMap(val) {

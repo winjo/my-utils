@@ -52,7 +52,7 @@ function serialize(obj) {
  */
 function deserialize(querystring) {
   querystring = querystring || window.location.search.slice(1);
-  var query = {};
+  var query = {}, key, value;
   querystring.split('&').forEach(function (pair) {
     var pos = pair.indexOf('=');
     if (pos >= 0) {
