@@ -1,6 +1,6 @@
 /**
  * 编码字符串
- * @param {Sting} val 
+ * @param {Sting} val
  */
 function encode(val) {
   return encodeURIComponent(val).replace(/%20/g, '+');
@@ -8,7 +8,7 @@ function encode(val) {
 
 /**
  * 解码字符串
- * @param {Sting} val 
+ * @param {Sting} val
  */
 function decode(val) {
   return decodeURIComponent(val.replace(/\+/g, '%20'));
@@ -16,7 +16,7 @@ function decode(val) {
 
 /**
  * 序列化查询参数
- * @param {Object} obj 
+ * @param {Object} obj
  * @return {String}
  */
 function serialize(obj) {
@@ -132,11 +132,11 @@ function http(url, data, method, config) {
     };
 
     if ('setRequestHeader' in xhr) {
-      Object.keys(headers).forEach(function (val, key) {
+      Object.keys(headers).forEach(function (key) {
         if (method === 'GET' && key.toLowerCase() === 'content-type') {
           delete headers[key];
         } else {
-          xhr.setRequestHeader(key, val);
+          xhr.setRequestHeader(key, headers[key]);
         }
       });
     }
