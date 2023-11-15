@@ -1,5 +1,6 @@
 # 常用函数集合
 
+
 函数列表：
 * type.js
   * isUndefined
